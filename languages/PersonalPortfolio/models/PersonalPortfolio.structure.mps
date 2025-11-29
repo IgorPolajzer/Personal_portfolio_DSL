@@ -260,6 +260,7 @@
     <property role="EcuMT" value="7468861638326741692" />
     <property role="TrG5h" value="AboutPage" />
     <property role="R4oN_" value="Used to desctibe the about page of the web app, the page contains cards and an optional timeline element." />
+    <property role="34LRSv" value="concept" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="PrWs8" id="6uAIxqt0uEY" role="PzmwI">
       <ref role="PrY4T" node="6uAIxqt0uEK" resolve="IPageConcept" />
@@ -270,6 +271,12 @@
       <property role="20kJfa" value="cards" />
       <property role="20lbJX" value="fLJekj5/_0__n" />
       <ref role="20lvS9" node="6uAIxqt0uF1" resolve="ICardConcept" />
+    </node>
+    <node concept="1TJgyj" id="7lXK8cKYFBG" role="1TKVEi">
+      <property role="IQ2ns" value="8466134544221387244" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="timeline" />
+      <ref role="20lvS9" node="7lXK8cKYFBI" resolve="Timeline" />
     </node>
   </node>
   <node concept="PlHQZ" id="6uAIxqt0uF1">
@@ -390,6 +397,11 @@
     <property role="TrG5h" value="Project" />
     <property role="R4oN_" value="Used to describe a project." />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyi" id="7lXK8cKYSBf" role="1TKVEl">
+      <property role="IQ2nx" value="8466134544221440463" />
+      <property role="TrG5h" value="image" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
     <node concept="1TJgyi" id="6uAIxqt0uFL" role="1TKVEl">
       <property role="IQ2nx" value="7468861638326741745" />
       <property role="TrG5h" value="route" />
@@ -550,12 +562,12 @@
       <property role="20lmBu" value="fLJjDmT/aggregation" />
       <property role="20kJfa" value="form" />
       <property role="20lbJX" value="fLJekj4/_1" />
-      <ref role="20lvS9" node="6uAIxqt0voi" resolve="From" />
+      <ref role="20lvS9" node="6uAIxqt0voi" resolve="Form" />
     </node>
   </node>
   <node concept="1TIwiD" id="6uAIxqt0voi">
     <property role="EcuMT" value="7468861638326744594" />
-    <property role="TrG5h" value="From" />
+    <property role="TrG5h" value="Form" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1TJgyi" id="6uAIxqt0vol" role="1TKVEl">
       <property role="IQ2nx" value="7468861638326744597" />
@@ -616,6 +628,50 @@
       <property role="3tVfz5" value="7468861638326764396" />
       <property role="TrG5h" value="SIDEBAR" />
       <property role="1L1pqM" value="sidebar" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="7lXK8cKYFBI">
+    <property role="EcuMT" value="8466134544221387246" />
+    <property role="TrG5h" value="Timeline" />
+    <property role="R4oN_" value="Used to describe a timeline of your career." />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyi" id="7lXK8cKYFBK" role="1TKVEl">
+      <property role="IQ2nx" value="8466134544221387248" />
+      <property role="TrG5h" value="title" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="1TJgyj" id="7lXK8cKYFBR" role="1TKVEi">
+      <property role="IQ2ns" value="8466134544221387255" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="elements" />
+      <property role="20lbJX" value="fLJekj6/_1__n" />
+      <ref role="20lvS9" node="7lXK8cKYFBM" resolve="TimelineElement" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="7lXK8cKYFBM">
+    <property role="EcuMT" value="8466134544221387250" />
+    <property role="TrG5h" value="TimelineElement" />
+    <property role="R4oN_" value="Used to describe an element in your career timeline" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyi" id="7lXK8cKYFBN" role="1TKVEl">
+      <property role="IQ2nx" value="8466134544221387251" />
+      <property role="TrG5h" value="date" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="1TJgyi" id="7lXK8cKYFBO" role="1TKVEl">
+      <property role="IQ2nx" value="8466134544221387252" />
+      <property role="TrG5h" value="title" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="1TJgyi" id="7lXK8cKYFBP" role="1TKVEl">
+      <property role="IQ2nx" value="8466134544221387253" />
+      <property role="TrG5h" value="location" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="1TJgyi" id="7lXK8cKYFBQ" role="1TKVEl">
+      <property role="IQ2nx" value="8466134544221387254" />
+      <property role="TrG5h" value="icon" />
+      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
   </node>
 </model>

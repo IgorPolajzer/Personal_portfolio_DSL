@@ -15,7 +15,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_ContentPage;
   private ConceptPresentation props_Field;
   private ConceptPresentation props_Footer;
-  private ConceptPresentation props_From;
+  private ConceptPresentation props_Form;
   private ConceptPresentation props_GridCard;
   private ConceptPresentation props_GridElement;
   private ConceptPresentation props_ICardConcept;
@@ -32,6 +32,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_QualificationsPage;
   private ConceptPresentation props_Social;
   private ConceptPresentation props_Technology;
+  private ConceptPresentation props_Timeline;
+  private ConceptPresentation props_TimelineElement;
   private ConceptPresentation props_Video;
 
   @Override
@@ -43,7 +45,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_AboutPage == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.shortDesc("Used to desctibe the about page of the web app, the page contains cards and an optional timeline element.");
-          cpb.rawPresentation("AboutPage");
+          cpb.rawPresentation("concept");
           props_AboutPage = cpb.create();
         }
         return props_AboutPage;
@@ -87,13 +89,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Footer = cpb.create();
         }
         return props_Footer;
-      case LanguageConceptSwitch.From:
-        if (props_From == null) {
+      case LanguageConceptSwitch.Form:
+        if (props_Form == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("From");
-          props_From = cpb.create();
+          cpb.rawPresentation("Form");
+          props_Form = cpb.create();
         }
-        return props_From;
+        return props_Form;
       case LanguageConceptSwitch.GridCard:
         if (props_GridCard == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -218,6 +220,22 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Technology = cpb.create();
         }
         return props_Technology;
+      case LanguageConceptSwitch.Timeline:
+        if (props_Timeline == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("Used to describe a timeline of your career.");
+          cpb.rawPresentation("Timeline");
+          props_Timeline = cpb.create();
+        }
+        return props_Timeline;
+      case LanguageConceptSwitch.TimelineElement:
+        if (props_TimelineElement == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("Used to describe an element in your career timeline");
+          cpb.rawPresentation("TimelineElement");
+          props_TimelineElement = cpb.create();
+        }
+        return props_TimelineElement;
       case LanguageConceptSwitch.Video:
         if (props_Video == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

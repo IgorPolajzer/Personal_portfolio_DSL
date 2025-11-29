@@ -22,7 +22,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptContentPage = createDescriptorForContentPage();
   /*package*/ final ConceptDescriptor myConceptField = createDescriptorForField();
   /*package*/ final ConceptDescriptor myConceptFooter = createDescriptorForFooter();
-  /*package*/ final ConceptDescriptor myConceptFrom = createDescriptorForFrom();
+  /*package*/ final ConceptDescriptor myConceptForm = createDescriptorForForm();
   /*package*/ final ConceptDescriptor myConceptGridCard = createDescriptorForGridCard();
   /*package*/ final ConceptDescriptor myConceptGridElement = createDescriptorForGridElement();
   /*package*/ final ConceptDescriptor myConceptICardConcept = createDescriptorForICardConcept();
@@ -39,6 +39,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptQualificationsPage = createDescriptorForQualificationsPage();
   /*package*/ final ConceptDescriptor myConceptSocial = createDescriptorForSocial();
   /*package*/ final ConceptDescriptor myConceptTechnology = createDescriptorForTechnology();
+  /*package*/ final ConceptDescriptor myConceptTimeline = createDescriptorForTimeline();
+  /*package*/ final ConceptDescriptor myConceptTimelineElement = createDescriptorForTimelineElement();
   /*package*/ final ConceptDescriptor myConceptVideo = createDescriptorForVideo();
   /*package*/ final EnumerationDescriptor myEnumerationNavBarType = new EnumerationDescriptor_NavBarType();
   /*package*/ final EnumerationDescriptor myEnumerationProjectStatus = new EnumerationDescriptor_ProjectStatus();
@@ -57,7 +59,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAboutPage, myConceptAvatarCard, myConceptContactPage, myConceptContentPage, myConceptField, myConceptFooter, myConceptFrom, myConceptGridCard, myConceptGridElement, myConceptICardConcept, myConceptIPageConcept, myConceptLayout, myConceptNavBar, myConceptPageElement, myConceptPaginatedCard, myConceptPersonalPortfolio, myConceptPlatform, myConceptProject, myConceptProjectsPage, myConceptQualification, myConceptQualificationsPage, myConceptSocial, myConceptTechnology, myConceptVideo);
+    return Arrays.asList(myConceptAboutPage, myConceptAvatarCard, myConceptContactPage, myConceptContentPage, myConceptField, myConceptFooter, myConceptForm, myConceptGridCard, myConceptGridElement, myConceptICardConcept, myConceptIPageConcept, myConceptLayout, myConceptNavBar, myConceptPageElement, myConceptPaginatedCard, myConceptPersonalPortfolio, myConceptPlatform, myConceptProject, myConceptProjectsPage, myConceptQualification, myConceptQualificationsPage, myConceptSocial, myConceptTechnology, myConceptTimeline, myConceptTimelineElement, myConceptVideo);
   }
 
   @Override
@@ -76,8 +78,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptField;
       case LanguageConceptSwitch.Footer:
         return myConceptFooter;
-      case LanguageConceptSwitch.From:
-        return myConceptFrom;
+      case LanguageConceptSwitch.Form:
+        return myConceptForm;
       case LanguageConceptSwitch.GridCard:
         return myConceptGridCard;
       case LanguageConceptSwitch.GridElement:
@@ -110,6 +112,10 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptSocial;
       case LanguageConceptSwitch.Technology:
         return myConceptTechnology;
+      case LanguageConceptSwitch.Timeline:
+        return myConceptTimeline;
+      case LanguageConceptSwitch.TimelineElement:
+        return myConceptTimelineElement;
       case LanguageConceptSwitch.Video:
         return myConceptVideo;
       default:
@@ -133,6 +139,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:f3f17903-e37a-4dcf-beab-4d8e1c39ad4b(PersonalPortfolio.structure)/7468861638326741692");
     b.version(3);
     b.aggregate("cards", 0x67a6ba169d01eadaL).target(0x5eee97a4f53b4a19L, 0xa155bca310393580L, 0x67a6ba169d01eac1L).optional(true).ordered(true).multiple(true).origin("7468861638326741722").done();
+    b.aggregate("timeline", 0x757dc08330fab9ecL).target(0x5eee97a4f53b4a19L, 0xa155bca310393580L, 0x757dc08330fab9eeL).optional(true).ordered(true).multiple(false).origin("8466134544221387244").done();
+    b.alias("concept");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForAvatarCard() {
@@ -182,8 +190,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.property("show_platforms", 0x67a6ba169d01eaaeL).type(PrimitiveTypeId.BOOLEAN).origin("7468861638326741678").done();
     return b.create();
   }
-  private static ConceptDescriptor createDescriptorForFrom() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("PersonalPortfolio", "From", 0x5eee97a4f53b4a19L, 0xa155bca310393580L, 0x67a6ba169d01f612L);
+  private static ConceptDescriptor createDescriptorForForm() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("PersonalPortfolio", "Form", 0x5eee97a4f53b4a19L, 0xa155bca310393580L, 0x67a6ba169d01f612L);
     b.class_(false, false, false);
     b.origin("r:f3f17903-e37a-4dcf-beab-4d8e1c39ad4b(PersonalPortfolio.structure)/7468861638326744594");
     b.version(3);
@@ -303,6 +311,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, false, false);
     b.origin("r:f3f17903-e37a-4dcf-beab-4d8e1c39ad4b(PersonalPortfolio.structure)/7468861638326741740");
     b.version(3);
+    b.property("image", 0x757dc08330fb89cfL).type(PrimitiveTypeId.STRING).origin("8466134544221440463").done();
     b.property("route", 0x67a6ba169d01eaf1L).type(PrimitiveTypeId.STRING).origin("7468861638326741745").done();
     b.property("title", 0x67a6ba169d01eaf2L).type(PrimitiveTypeId.STRING).origin("7468861638326741746").done();
     b.property("status", 0x67a6ba169d01eaf3L).type(MetaIdFactory.dataTypeId(0x5eee97a4f53b4a19L, 0xa155bca310393580L, 0x67a6ba169d01eaf7L)).origin("7468861638326741747").done();
@@ -359,6 +368,26 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.property("name", 0x67a6ba169d01f5f9L).type(PrimitiveTypeId.STRING).origin("7468861638326744569").done();
     b.property("purpose", 0x67a6ba169d01f5faL).type(PrimitiveTypeId.STRING).origin("7468861638326744570").done();
     b.property("logo", 0x67a6ba169d01f5fcL).type(PrimitiveTypeId.STRING).origin("7468861638326744572").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForTimeline() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("PersonalPortfolio", "Timeline", 0x5eee97a4f53b4a19L, 0xa155bca310393580L, 0x757dc08330fab9eeL);
+    b.class_(false, false, false);
+    b.origin("r:f3f17903-e37a-4dcf-beab-4d8e1c39ad4b(PersonalPortfolio.structure)/8466134544221387246");
+    b.version(3);
+    b.property("title", 0x757dc08330fab9f0L).type(PrimitiveTypeId.STRING).origin("8466134544221387248").done();
+    b.aggregate("elements", 0x757dc08330fab9f7L).target(0x5eee97a4f53b4a19L, 0xa155bca310393580L, 0x757dc08330fab9f2L).optional(false).ordered(true).multiple(true).origin("8466134544221387255").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForTimelineElement() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("PersonalPortfolio", "TimelineElement", 0x5eee97a4f53b4a19L, 0xa155bca310393580L, 0x757dc08330fab9f2L);
+    b.class_(false, false, false);
+    b.origin("r:f3f17903-e37a-4dcf-beab-4d8e1c39ad4b(PersonalPortfolio.structure)/8466134544221387250");
+    b.version(3);
+    b.property("date", 0x757dc08330fab9f3L).type(PrimitiveTypeId.STRING).origin("8466134544221387251").done();
+    b.property("title", 0x757dc08330fab9f4L).type(PrimitiveTypeId.STRING).origin("8466134544221387252").done();
+    b.property("location", 0x757dc08330fab9f5L).type(PrimitiveTypeId.STRING).origin("8466134544221387253").done();
+    b.property("icon", 0x757dc08330fab9f6L).type(PrimitiveTypeId.STRING).origin("8466134544221387254").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForVideo() {
