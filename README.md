@@ -2,6 +2,179 @@
 
 ## EBNF notation for the language
 ``` ebnf
+Portfolio = 'Portfolio' '{' 
+               [ 'name' ':' STRING ]
+               [ 'profession' ':' STRING ]
+               [ 'title' ':' STRING ]
+               [ 'logo' ':' STRING ]
+               [ 'description' ':' STRING ]
+               'assets_folder' ':' STRING
+               'social' ':' Social
+               'layout' ':' Layout
+               'pages' ':' '[' { Page } ']'
+            '}'
+
+Social = 'Social' '{' 
+           'show_on_contact_form' ':' BOOLEAN 
+           [ 'mail' ':' STRING ]
+           [ 'platforms' ':' PlatformsField ]
+         '}'
+
+PlatformsField = '[' { Platform } ']'
+Platform = 'Platform' '{' 
+             [ 'name' ':' STRING ]
+             'url' ':' STRING
+             'logo' ':' STRING
+           '}'
+
+Layout = 'Layout' '{' 
+           'animated_stars_background' ':' BOOLEAN
+           'theme' ':' STRING
+           'nav_bar' ':' NavBar
+           [ 'footer' ':' Footer ]
+         '}'
+
+Footer = 'Footer' '{' 
+           'show_contact_email' ':' BOOLEAN
+           'show_platforms' ':' BOOLEAN
+         '}'
+
+NavBar = 'NavBar' '{' 
+           'type' ':' ( 'inline' | 'hamburger' )
+           'show_title' ':' BOOLEAN
+           'show_logo' ':' BOOLEAN
+         '}'
+
+Page = ContentPage | AboutPage | ProjectsPage | QualificationsPage | ContactPage
+
+ContentPage = 'ContentPage' '{' 
+            'route' ':' STRING
+            'nav_bar' ':' BOOLEAN
+            'title' ':' STRING
+            'content' ':' MARKDOWN
+            '}'
+
+AboutPage = 'AboutPage' '{' 
+              'route' ':' STRING
+              'nav_bar' ':' BOOLEAN
+              [ 'cards' ':' '[' { Card } ']' ]
+              'timeline' ':' Timeline
+            '}'
+
+Card = AvatarCard | GridCard | PaginatedCard
+
+AvatarCard = 'AvatarCard' '{' 
+               [ 'title' ':' STRING ]
+               [ 'subtitle' ':' STRING ]
+               'avatar' ':' STRING
+               'content' ':' MARKDOWN
+             '}'
+
+GridCard = 'GridCard' '{' 
+             [ 'title' ':' STRING ]
+             [ 'subtitle' ':' STRING ]
+             'grid_elements' ':' '[' { GridElement } ']'
+           '}'
+
+GridElement = 'GridElement' '{' 
+                [ 'image' ':' STRING ]
+                [ 'title' ':' STRING ]
+              '}'
+
+PaginatedCard = 'PaginatedCard' '{' 
+                [ 'title' ':' STRING ]
+                [ 'subtitle' ':' STRING ]
+                  'pages' ':' '[' { PageElement } ']'
+                '}'
+
+PageElement = 'Page' '{' 
+                [ 'image' ':' STRING ]
+                [ 'content' ':' MARKDOWN ]
+              '}'
+
+Timeline = 'Timeline' '{' 
+             [ 'title' ':' STRING ]
+             'elements' ':' '[' { TimelineElement } ']'
+           '}'
+
+TimelineElement = 'TimelineElement' '{' 
+                    'date' ':' STRING
+                    'title' ':' STRING
+                    [ 'location' ':' STRING ]
+                    [ 'icon' ':' STRING ]
+                  '}'
+
+ProjectsPage = 'ProjectsPage' '{' 
+                 'route' ':' STRING
+                 'nav_bar' ':' BOOLEAN
+                 'projects' ':' '[' { Project } ']'
+               '}'
+
+Project = 'Project' '{' 
+            'image' ':' STRING
+            'route' ':' STRING
+            'title' ':' STRING
+            'status' ':' STRING
+            'description' ':' STRING
+            [ 'github' ':' STRING ]
+            [ 'access_url' ':' STRING ]
+            [ 'videos' ':' '[' { STRING } ']' ]
+            'technologies' ':' '[' { Technology } ']'
+          '}'
+
+Technology = 'Technology' '{' 
+               'name' ':' STRING
+               'purpose' ':' STRING
+               [ 'logo' ':' STRING ]
+             '}'
+
+QualificationsPage = 'QualificationsPage' '{' 
+                       'nav_bar' ':' BOOLEAN
+                       'route' ':' STRING
+                       'qualifications' ':' '[' { Qualification } ']'
+                     '}'
+
+Qualification = 'Qualification' '{' 
+                  'title' ':' STRING
+                  [ 'description' ':' STRING ]
+                  'file' ':' STRING
+                '}'
+
+ContactPage = 'ContactPage' '{' 
+                  'route' ':' STRING
+                  'nav_bar' ':' BOOLEAN
+                  'form' ':' Form
+                '}'
+
+Form = 'Form' '{' 
+         'title' ':' STRING
+         'mailjs_service_id': STRING,
+         'mailjs_template_id': STRING,
+         'mailjs_public_key': STRING,
+         'success_text' ':' STRING
+         'failure_text' ':' STRING
+         'name_field' ':' Field
+         'email_field' ':' Field
+         'message_field' ':' Field
+       '}'
+
+Field = 'Field' '{' 
+          'title' ':' STRING
+          'hint' ':' STRING
+        '}'
+
+BOOLEAN = 'true' | 'false'
+INTEGER = DIGIT { DIGIT }
+DIGIT = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+STRING = '"' { AnyCharacterExceptQuote } '"'
+MARKDOWN = '"""' { AnyCharacterExceptTripleQuote } '"""'
+COMMENT = '//' { AnyCharacterExceptNewline }
+
+
+```
+---
+## Example program
+``` txt
 Portfolio {
     name: "Igor Polajžer"
     profession: "Software Developer"
